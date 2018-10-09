@@ -4,14 +4,14 @@ var path = require("path");
 
 var app = express();
 
-var PORT = precess.env.PORT || 8080;
+var PORT = process.env.PORT || 8080;
 
-app.use(express.static("public"));
-apps.use(bodyParser.urlencoded({extended: true }));
+app.use(express.static(path.join(__dirname,'public')));
+app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 app.listen(PORT, function(){
     console.log("App Listening on PORT: " + PORT);
